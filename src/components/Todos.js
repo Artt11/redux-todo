@@ -14,19 +14,22 @@ export const Todos = () => {
     <div>
       <ul>
         {todos.map((todo) => {
+            <>
           <li>
             <input
               type="checkbox"
               checked={todo.completed}
-              onChange={dispatch(handleCheckbox(id))}
+              onChange={()=>dispatch(handleCheckbox(todo.id))}
             />
             <span>{todo.title}</span>
 
-            <button onClick={dispatch(removeTodo(id))}>X</button>
+            <button onClick={()=>dispatch(removeTodo(todo.id))}>X</button>
           </li>;
 
-          <button onClick={dispatch(deleteAll())}>delete all</button>;
+          <button onClick={()=>dispatch(deleteAll())}>delete all</button>;
+          </>
         })}
+
       </ul>
     </div>
   );
